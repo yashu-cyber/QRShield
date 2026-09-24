@@ -1,0 +1,88 @@
+import type { HistoryItem } from "@/types/analysis";
+
+export const mockHistory: HistoryItem[] = [
+  {
+    id: "history-url-1",
+    title: "Suspicious login URL",
+    timestamp: "Today, 8:32 PM",
+    response: {
+      risk_score: 87,
+      risk_level: "HIGH",
+      threat_type: "PHISHING",
+      input_type: "URL",
+      indicators: [{ type: "SUSPICIOUS_DOMAIN", severity: "HIGH", message: "The destination uses a suspicious domain pattern." }],
+      recommendation: "Do not enter credentials or personal information.",
+      analysis: "Demo history response for a URL analysis.",
+    },
+  },
+  {
+    id: "history-sms-1",
+    title: "Bank verification message",
+    timestamp: "Today, 7:15 PM",
+    response: {
+      risk_score: 78,
+      risk_level: "SUSPICIOUS",
+      threat_type: "SOCIAL_ENGINEERING",
+      input_type: "SMS",
+      indicators: [{ type: "URGENCY_LANGUAGE", severity: "HIGH", message: "The message uses urgency to encourage immediate action." }],
+      recommendation: "Do not follow links or share verification codes.",
+      analysis: "Demo history response for an SMS analysis.",
+    },
+  },
+  {
+    id: "history-qr-1",
+    title: "Payment QR",
+    timestamp: "Today, 6:42 PM",
+    response: {
+      risk_score: 24,
+      risk_level: "LOW",
+      threat_type: "NO_IMMEDIATE_CONCERN",
+      input_type: "QR",
+      indicators: [{ type: "REVIEW_COMPLETE", severity: "LOW", message: "No immediate concern is represented in this demo record." }],
+      recommendation: "Continue to verify the destination before proceeding.",
+      analysis: "Demo history response for a QR analysis.",
+    },
+  },
+  {
+    id: "history-phone-1",
+    title: "Unknown caller context",
+    timestamp: "Today, 5:58 PM",
+    response: {
+      risk_score: 42,
+      risk_level: "SUSPICIOUS",
+      threat_type: "UNKNOWN_CONTACT",
+      input_type: "PHONE",
+      indicators: [{ type: "CONTEXT_REQUIRED", severity: "MEDIUM", message: "Additional context would be needed to assess this contact." }],
+      recommendation: "Verify the caller through a trusted channel.",
+      analysis: "Demo history response for a phone analysis.",
+    },
+  },
+  {
+    id: "history-email-1",
+    title: "Account security email",
+    timestamp: "Today, 4:26 PM",
+    response: {
+      risk_score: 81,
+      risk_level: "HIGH",
+      threat_type: "BRAND_IMPERSONATION",
+      input_type: "EMAIL",
+      indicators: [{ type: "SENDER_MISMATCH", severity: "HIGH", message: "The sender may imitate a trusted organization." }],
+      recommendation: "Do not reply or enter credentials from this message.",
+      analysis: "Demo history response for an email analysis.",
+    },
+  },
+  {
+    id: "history-screenshot-1",
+    title: "Prize notification screenshot",
+    timestamp: "Today, 3:10 PM",
+    response: {
+      risk_score: 63,
+      risk_level: "SUSPICIOUS",
+      threat_type: "SUSPICIOUS_CONTENT",
+      input_type: "SCREENSHOT",
+      indicators: [{ type: "REVIEW_REQUIRED", severity: "MEDIUM", message: "The screenshot requires additional review in a future flow." }],
+      recommendation: "Avoid interacting with the content until it has been verified.",
+      analysis: "Demo history response for a screenshot analysis.",
+    },
+  },
+];
