@@ -3,6 +3,7 @@ from pathlib import Path
 import cv2
 
 from app.analyzers.text import analyze_text
+from app.analyzers.payment import analyze_payment
 from app.analyzers.url import analyze_url
 from app.engine.indicators import create_indicator
 from app.engine.risk_engine import analyze_risk
@@ -40,6 +41,11 @@ def analyze_qr(image_path: str):
             threat_type="INVALID_INPUT",
             indicators=[indicator],
         )
+
+    if data.lower().startswith("upi://pay"):
+        result = analyze_payment(data)
+        result.input_type = "QR"
+        return result
 
     if data.lower().startswith(("http://", "https://", "www.")):
         result = analyze_url(data)
