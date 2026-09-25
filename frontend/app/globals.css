@@ -298,3 +298,50 @@ h2 { font-size: 23px; font-weight: 500; letter-spacing: -.02em; margin: 0; }
   .limitations-note { margin-top: 40px; }
   .how-final-cta { margin-top: 50px; }
 }
+
+.history-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.history-filter {
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 9px 15px;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.history-filter:hover {
+  background: #172324;
+  border-color: #3c504c;
+  color: var(--foreground);
+}
+
+.history-filter.active {
+  background: #1b2a2b;
+  border-color: #557044;
+  color: var(--accent);
+}
+
+.history-filter:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (max-width: 700px) {
+  .history-filters {
+    gap: 6px;
+  }
+
+  .history-filter {
+    padding: 8px 12px;
+  }
+}
