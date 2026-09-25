@@ -37,8 +37,12 @@ def analyze_risk(
     threat_type: str,
     indicators: List[Indicator],
 ) -> RiskResult:
-    score = calculate_risk_score(indicators)
-    risk_level = get_risk_level(score)
+    if threat_type == "INVALID_INPUT":
+        score = 0
+        risk_level = "LOW"
+    else:
+        score = calculate_risk_score(indicators)
+        risk_level = get_risk_level(score)
 
     return RiskResult(
         risk_score=score,
